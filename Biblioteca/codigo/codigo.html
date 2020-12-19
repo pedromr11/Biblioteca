@@ -4,8 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca</title>
+    <script src="../script/script.js"></script>
+    <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
-    
+    <div id="seccionPrincipal">
+    <form novalidate>           
+        <fieldset>
+                <legend>Formulario: </legend>
+                    <br>
+                    <label>Selecciona un tipo de literatura:</label>
+                    <br>
+                    <select name="literatura" id="literatura">
+                        <option value="infantil">Infantil</option>
+                        <option value="juvenil">Juvenil</option>
+                        <option value="adulto">Adulta</option>
+                    </select>
+                    <br><br>
+                    <label>Nombre del libro:</label>
+                    <br>
+                    <input type="text" id="nombreLibro" required>
+                    <br><br>
+                    <label>Identificador:</label>
+                    <br>
+                    <input type="text" id="identificador" pattern="_[0-9]{3}:[0-9]{4}[A-Z]{1}" required>
+                    <br><br>
+                    <label>Año de publicación:</label>
+                    <br>
+                    <input type="date" id="añoPublicacion" required>
+                    <br><br>
+                    <label>Número de copias:</label>
+                    <br>
+                    <input type="number" id="numeroCopias" maxlength="2" required>
+                    <br><br>
+                    <label>Literatura infantil</label>
+                    <br>
+                    <label>Si</label>
+                    <input type="radio" name="Linfantil" value="si" required>
+                    <label>No</label>
+                    <input type="radio" name="Linfantil" value="no" required>
+                    <br>
+                    <div id="invisible">
+                        <label>Edad recomendada:</label>
+                        <br>
+                        <input type="number" min="1" max="10">
+                        <br>
+                        <label>Observaciones</label>
+                        <br>
+                        <input type="text" max="150">
+
+                    </div>
+                    <br>
+                    <button type="submit" id="submit" class="boton">ENVIAR</button>
+            </fieldset>
+    </form>
+    </div>
 </body>
 </html>

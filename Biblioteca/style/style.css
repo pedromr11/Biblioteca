@@ -1,0 +1,8 @@
+#visible{
+    visibility: visible;
+}
+
+#invisible{
+    position: absolute;
+    visibility: hidden;
+}
