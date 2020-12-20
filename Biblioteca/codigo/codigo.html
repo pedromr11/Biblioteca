@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="seccionPrincipal">
-    <form novalidate>           
+              
         <fieldset>
                 <legend>Formulario: </legend>
                     <br>
@@ -40,24 +40,24 @@
                     <label>Literatura infantil</label>
                     <br>
                     <label>Si</label>
-                    <input type="radio" name="Linfantil" value="si" required>
+                    <input type="radio" id="si" name="Linfantil" value="si" required>
                     <label>No</label>
-                    <input type="radio" name="Linfantil" value="no" required>
+                    <input type="radio" id="no" name="Linfantil" value="no" required>
                     <br>
-                    <div id="invisible">
+                    <div class="invisible" id="invisible">
                         <label>Edad recomendada:</label>
                         <br>
-                        <input type="number" min="1" max="10">
+                        <input id="edadR" type="number" min="1" max="10" >
                         <br>
                         <label>Observaciones</label>
                         <br>
-                        <input type="text" max="150">
+                        <input id="observaciones" type="text" max="150" >
 
                     </div>
                     <br>
-                    <button type="submit" id="submit" class="boton">ENVIAR</button>
+                    <button type="submit" id="submit" class="boton">Enviar</button>
             </fieldset>
-    </form>
+    
     </div>
 </body>
 </html>
