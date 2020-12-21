@@ -125,7 +125,12 @@ function crearFormulario(){
     }
 
     //Obervaciones
-    if (!observaciones.validity.valid) {
+    if (observaciones.value.length > 150) {
+        todoCorrecto = false;
+        event.preventDefault();
+        observaciones.style.borderColor = "red";
+        textoVentana += "Se ha superado el límite de 150 caracteres.";
+    }else if(!observaciones.validity.valid){
         todoCorrecto = false;
         event.preventDefault();
         observaciones.style.borderColor = "red"
