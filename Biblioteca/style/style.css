@@ -19,7 +19,9 @@
     border: 1px solid black;
     float: right;
     height: 50%;
-    padding-bottom: 21%;
+    overflow: auto;
+    position: absolute;
+    margin-left: 45%;
 }
 
 body{
@@ -37,4 +39,5 @@ body{
     color: red;
     font-size: 30px;
 }
+
 

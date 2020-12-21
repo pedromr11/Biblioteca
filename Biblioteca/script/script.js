@@ -220,12 +220,14 @@ function seccionDos(){
    for (let index = 0; index < ArrayLibros.length; index++) {
        if (desplegable.value == ArrayLibros[index].Literatura) {
 
-        informacion.innerHTML += "<p>"+ArrayLibros[index].Nombre+"</p><br>"
+        informacion.innerHTML += "<p>"+ArrayLibros[index].Nombre+"</p><br>";
+        informacion.innerHTML += "<span class=tooltiptext></span>";
         
        }
 
        if (desplegable.value == "vacio") {
-        informacion.innerHTML += "<p>"+ArrayLibros[index].Nombre+"</p><br>"          
+        informacion.innerHTML += "<p>"+ArrayLibros[index].Nombre+"</p><br>";
+        informacion.innerHTML += "<span class=tooltiptext></span>";          
        }
    }
 
