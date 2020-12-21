@@ -2,14 +2,19 @@ window.onload = function() {
     let si = document.getElementById("si").addEventListener("click", literaturaInfantil);
     let no = document.getElementById("no").addEventListener("click", literaturaInfantil);
     crearFormulario();
+    let select = document.getElementById("literatura").addEventListener("change", seccionDos);
+    seccionTres();
 }
+
+ //Creo un array para meter los libros
+ var ArrayLibros = [];
 
 
 class Libro {
     constructor(Literatura, Nombre, Identificador, FechaPublicacion, NumeroCopias, EdadRecomendada, Observaciones, Modificacion){
         this.Literatura = Literatura;
         this.Nombre = Nombre;
-        this,Identificador = Identificador;
+        this.Identificador = Identificador;
         this.FechaPublicacion = FechaPublicacion;
         this.NumeroCopias = NumeroCopias;
         this.EdadRecomendada = EdadRecomendada;
@@ -23,8 +28,6 @@ class Libro {
 
 function crearFormulario(){
     
-    //Creo un array para meter los libros
-    let ArrayLibros = [];
     //Cosas utiles
     let IdObjetos = [];
     let identificadorAuxiliar;
@@ -46,7 +49,19 @@ function crearFormulario(){
         todoCorrecto = true;
     
     //Comprobar que esos datos son validos
-        
+    
+    //Literatura
+    if(literatura.value == "vacio"){
+        todoCorrecto = false;
+        event.preventDefault();
+        literatura.style.borderColor = "red";
+        textoVentana += "Selecciona una categoria";
+    }else{
+        literatura.style.borderColor = "black"
+        textoVentana="";
+    }
+
+
     //Nombre del libro
     if (!nombreLibro.validity.valid) {
         todoCorrecto = false;
@@ -167,6 +182,59 @@ function literaturaInfantil(){
         document.getElementById("observaciones").value = "";
     }
 
+}
+
+
+//Recoger el valor del select, guardar los objetos en un array nuevo, comprueba uno a uno si el valor del select corresponde con el valor del objeto correspondiente y si 
+//lo cumple visualiza en el div lo que se necesite.
+function seccionDos(){
+
+
+    let desplegable = document.getElementById("literatura");
+    let informacion = document.getElementById("seccionDos");
+
+    informacion.innerHTML = "";
+    informacion.innerHTML = "Los libros de tipo "+desplegable.value;
+
+   for (let index = 0; index < ArrayLibros.length; index++) {
+       if (desplegable.value == ArrayLibros[index].Literatura) {
+
+        informacion.innerHTML += "<p>"+ArrayLibros[index].Nombre+"</p><br>"
+        
+       }
+
+       if (desplegable.value == "vacio") {
+        informacion.innerHTML += "<p>"+ArrayLibros[index].Nombre+"</p><br>"          
+       }
+   }
+
+   
+}
+
+function seccionTres(){
+
+    let seccion = document.getElementById("seccionTres");
+    let dia = new Date().getDay();
+    let hora = new Date().getHours();
+    let minutos = new Date().getMinutes();
+    let boton = document.getElementById("submit");
+
+    //Dias festivos
+    if(dia == 6 || dia == 0){
+        seccion.innerHTML = "En días festivos no es posible dar de alta nuevos libros";
+        boton.disabled = true;
+    }
+    
+    //De lunes a viernes dentro de horario
+    if((dia >= 1 && dia <= 5) && (hora >= 9 && hora <= 19)){
+        seccion.innerHTML = "Sección de alta abierta";
+    }
+
+    //De lunes a viernes fuera de horario
+    if((dia >= 1 && dia <= 5) && (hora >= 19 && hora <= 9)){
+        seccion.innerHTML = "Está fuera de horario. Solo es posible dar de alta libros de lunes a viernes de 9:00 a 19:00";
+        boton.disabled = true;
+    }
 }
 
 

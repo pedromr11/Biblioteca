@@ -8,18 +8,33 @@
 }
 
 #seccionPrincipal{
-    width: 40%;
+    width: 45%;
     background-color: lightgreen;
     float: left;
+    height: 50%;
 }
 
 #seccionDos{
-    width: 40%;
+    width: 45%;
     border: 1px solid black;
     float: right;
+    height: 50%;
+    padding-bottom: 21%;
 }
 
 body{
     margin-left: 5%;
     margin-right: 5%;
 }
+
+#seccionTres{
+    width: 90%;
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+    padding-bottom: 21%;
+    text-align: center;
+    color: red;
+    font-size: 30px;
+}
+
