@@ -48,7 +48,8 @@ function crearFormulario(){
     let boton = document.getElementById("submit");
     boton.addEventListener("click", event => {
         todoCorrecto = true;
-    
+        textoVentana = "";
+
     //Comprobar que esos datos son validos
     
     //Literatura
@@ -59,7 +60,7 @@ function crearFormulario(){
         textoVentana += "<p>Selecciona una categoria</p>";
     }else{
         literatura.style.borderColor = "black";
-        textoVentana.innerHTML="";
+       
     }
 
 
@@ -71,7 +72,7 @@ function crearFormulario(){
         textoVentana += "<p>Falta el nombre del libro</p>";
     }else{
         nombreLibro.style.borderColor = "black";
-        textoVentana.innerHTML="";
+        
     }
 
     //Identificador
@@ -88,7 +89,7 @@ function crearFormulario(){
         textoVentana += "<p>Falta el identificador</p>";
     }else{
         identificador.style.borderColor = "black";
-        textoVentana.innerHTML="";
+        
         
     }    
 
@@ -105,7 +106,7 @@ function crearFormulario(){
         textoVentana += "<p>Falta el número de copias</p>";
     }else{
         numeroCopias.style.borderColor = "black";
-        textoVentana.innerHTML="";
+        
     }
 
     //Edad recomendada
@@ -121,7 +122,7 @@ function crearFormulario(){
         textoVentana += "<p>Falta la edad recomendada</p>";
     }else{
         edadRecomendada.style.borderColor = "black";
-        textoVentana.innerHTML="";
+       
 
     }
 
@@ -138,7 +139,7 @@ function crearFormulario(){
         textoVentana += "<p>Falta la edad recomendada</p>";
     }else{
         observaciones.style.borderColor = "black";
-        textoVentana.innerHTML="";
+        
     }
     console.log(textoVentana);
      //Si son validos creo un objeto y si no, se lo notifico al usuario
@@ -265,7 +266,6 @@ function seccionTres(){
 function recuperarAlertas(){
     console.log(textoVentana);
     return textoVentana;
-    
 }
 
 
