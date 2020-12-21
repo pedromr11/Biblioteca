@@ -9,7 +9,8 @@ window.onload = function() {
 
  //Creo un array para meter los libros
  var ArrayLibros = [];
-
+//Variable donde se guardan las alertas y se las paso a la ventana
+ var textoVentana = "";
 
 class Libro {
     constructor(Literatura, Nombre, Identificador, FechaPublicacion, NumeroCopias, EdadRecomendada, Observaciones, Modificacion){
@@ -41,7 +42,6 @@ function crearFormulario(){
      let numeroCopias = document.getElementById("numeroCopias");
      let edadRecomendada = document.getElementById("edadR");
      let observaciones = document.getElementById("observaciones");
-     let textoVentana;
      let todoCorrecto = "";
 
 
@@ -56,10 +56,10 @@ function crearFormulario(){
         todoCorrecto = false;
         event.preventDefault();
         literatura.style.borderColor = "red";
-        textoVentana += "Selecciona una categoria";
+        textoVentana += "<p>Selecciona una categoria</p>";
     }else{
-        literatura.style.borderColor = "black"
-        textoVentana="";
+        literatura.style.borderColor = "black";
+        textoVentana.innerHTML="";
     }
 
 
@@ -68,10 +68,10 @@ function crearFormulario(){
         todoCorrecto = false;
         event.preventDefault();
         nombreLibro.style.borderColor = "red"
-        textoVentana += "Falta el nombre del libro";
+        textoVentana += "<p>Falta el nombre del libro</p>";
     }else{
-        nombreLibro.style.borderColor = "black"
-        textoVentana="";
+        nombreLibro.style.borderColor = "black";
+        textoVentana.innerHTML="";
     }
 
     //Identificador
@@ -79,16 +79,16 @@ function crearFormulario(){
         todoCorrecto = false;
         event.preventDefault();
         identificador.style.borderColor = "red"
-        textoVentana += "Formato incorrecto";
+        textoVentana += "<p>Formato incorrecto</p>";
 
     }else if (!identificador.validity.valid) {
         todoCorrecto = false;
         event.preventDefault();
         identificador.style.borderColor = "red"
-        textoVentana += "Falta el identificador";
+        textoVentana += "<p>Falta el identificador</p>";
     }else{
-        identificador.style.borderColor = "black"
-        textoVentana="";
+        identificador.style.borderColor = "black";
+        textoVentana.innerHTML="";
         
     }    
 
@@ -97,15 +97,15 @@ function crearFormulario(){
         todoCorrecto = false;
         event.preventDefault();
         numeroCopias.style.borderColor = "red";
-        textoVentana += "Necesita menos de 2 cifras.";   
+        textoVentana += "<p>Necesita menos de 2 cifras.</p>";   
     }else if(!numeroCopias.validity.valid){
         todoCorrecto = false;
         event.preventDefault();
         numeroCopias.style.borderColor = "red"
-        textoVentana += "Falta el número de copias";
+        textoVentana += "<p>Falta el número de copias</p>";
     }else{
-        numeroCopias.style.borderColor = "black"
-        textoVentana="";
+        numeroCopias.style.borderColor = "black";
+        textoVentana.innerHTML="";
     }
 
     //Edad recomendada
@@ -113,15 +113,16 @@ function crearFormulario(){
         todoCorrecto = false;
         event.preventDefault();
         edadRecomendada.style.borderColor = "red";
-        textoVentana += "Necesita un número entre 1 y 10.";   
+        textoVentana += "<p>Necesita un número entre 1 y 10.</p>";   
     }else if(!edadRecomendada.validity.valid){
         todoCorrecto = false;
         event.preventDefault();
         edadRecomendada.style.borderColor = "red"
-        textoVentana += "Falta la edad recomendada";
+        textoVentana += "<p>Falta la edad recomendada</p>";
     }else{
-        edadRecomendada.style.borderColor = "black"
-        textoVentana="";
+        edadRecomendada.style.borderColor = "black";
+        textoVentana.innerHTML="";
+
     }
 
     //Obervaciones
@@ -129,17 +130,17 @@ function crearFormulario(){
         todoCorrecto = false;
         event.preventDefault();
         observaciones.style.borderColor = "red";
-        textoVentana += "Se ha superado el límite de 150 caracteres.";
+        textoVentana += "<p>Se ha superado el límite de 150 caracteres.</p>";
     }else if(!observaciones.validity.valid){
         todoCorrecto = false;
         event.preventDefault();
         observaciones.style.borderColor = "red"
-        textoVentana += "Falta la edad recomendada";
+        textoVentana += "<p>Falta la edad recomendada</p>";
     }else{
-        observaciones.style.borderColor = "black"
-        textoVentana="";
+        observaciones.style.borderColor = "black";
+        textoVentana.innerHTML="";
     }
-
+    console.log(textoVentana);
      //Si son validos creo un objeto y si no, se lo notifico al usuario
      if(todoCorrecto == true){           
         
@@ -172,6 +173,10 @@ function crearFormulario(){
                 ArrayLibros.push(libro);
             }
         }        
+        
+     }else{
+        
+        crearVentana();
         
      }
 
@@ -252,6 +257,18 @@ function seccionTres(){
         boton.disabled = true; 
 
     }
+
+}
+
+function recuperarAlertas(){
+    console.log(textoVentana);
+    return textoVentana;
+    
+}
+
+
+function crearVentana(){
+    window.open("./paginaVentana.html", "pop-up", "width=500 height=300");
 
 }
 
