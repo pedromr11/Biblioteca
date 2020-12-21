@@ -6,3 +6,20 @@
     position: absolute;
     visibility: hidden;
 }
+
+#seccionPrincipal{
+    width: 40%;
+    background-color: lightgreen;
+    float: left;
+}
+
+#seccionDos{
+    width: 40%;
+    border: 1px solid black;
+    float: right;
+}
+
+body{
+    margin-left: 5%;
+    margin-right: 5%;
+}
