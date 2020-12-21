@@ -141,7 +141,9 @@ function crearFormulario(){
         observaciones.style.borderColor = "black";
         
     }
-    console.log(textoVentana);
+    //console.log(textoVentana);
+
+
      //Si son validos creo un objeto y si no, se lo notifico al usuario
      if(todoCorrecto == true){           
         
@@ -221,14 +223,13 @@ function seccionDos(){
    for (let index = 0; index < ArrayLibros.length; index++) {
        if (desplegable.value == ArrayLibros[index].Literatura) {
 
-        informacion.innerHTML += "<p>"+ArrayLibros[index].Nombre+"</p><br>";
-        informacion.innerHTML += "<span class=tooltiptext></span>";
+        informacion.innerHTML += "<div class='span'><p>"+ArrayLibros[index].Nombre+"</p><span class=tooltiptext>Hay disponibles "+ArrayLibros[index].NumeroCopias+" ejemplar/es.</span></div><br>";
         
        }
 
        if (desplegable.value == "vacio") {
-        informacion.innerHTML += "<p>"+ArrayLibros[index].Nombre+"</p><br>";
-        informacion.innerHTML += "<span class=tooltiptext></span>";          
+        informacion.innerHTML += "<div class='span'><p>"+ArrayLibros[index].Nombre+"</p><span class=tooltiptext>Hola</span></div><br>";
+           
        }
    }
 

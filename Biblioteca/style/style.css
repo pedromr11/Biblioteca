@@ -41,3 +41,23 @@ body{
 }
 
 
+
+.span .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: rgb(238, 179, 17);
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 0;
+    position: absolute;
+    z-index: 1;
+    left: 0%;
+    top: 11%;
+}
+
+.span:hover .tooltiptext {
+    visibility: visible;
+}
+
+
