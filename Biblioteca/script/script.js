@@ -91,7 +91,18 @@ function crearFormulario(){
         identificador.style.borderColor = "black";
         
         
-    }    
+    }
+    
+    //Año de publicacion
+    if ((añoPublicacion.value).split("-")[0] > new Date().getFullYear()) {
+        todoCorrecto = false;
+        event.preventDefault();
+        añoPublicacion.style.borderColor = "red"
+        textoVentana += "<p>Año incorrecto</p>";
+    }else{
+        añoPublicacion.style.borderColor = "black";
+        
+    }
 
     //Número de copias
     if (numeroCopias.value.length > 2) {
@@ -141,7 +152,7 @@ function crearFormulario(){
         observaciones.style.borderColor = "black";
         
     }
-    //console.log(textoVentana);
+    
 
 
      //Si son validos creo un objeto y si no, se lo notifico al usuario
@@ -151,7 +162,7 @@ function crearFormulario(){
              Literatura: literatura.value,
              Nombre: nombreLibro.value,
              Identificador: identificador.value,
-             FechaPublicacion: añoPublicacion.value,
+             FechaPublicacion: (añoPublicacion.value).split("-")[0],
              NumeroCopias: numeroCopias.value,
              EdadRecomendada: edadRecomendada.value,
              Observaciones: observaciones.value,
@@ -183,7 +194,7 @@ function crearFormulario(){
         
      }
 
-     //console.log(ArrayLibros);
+     console.log(ArrayLibros);
 
     } );
 
