@@ -281,7 +281,7 @@ function seccionTres(){
     }
 
     //De lunes a viernes fuera de horario
-    if((dia >= 1 && dia <= 5) && (hora >= 19 && hora <= 9) && (minutos >= 0 && minutos <= 59)){
+    if((dia >= 1 && dia <= 5) && !(hora >= 9 && hora <= 19) && (minutos >= 0 && minutos <= 59)){
         seccion.innerHTML = "Está fuera de horario. Solo es posible dar de alta libros de lunes a viernes de 9:00 a 19:00";
         boton.disabled = true; 
 
