@@ -109,7 +109,12 @@ function crearFormulario(){
     }
 
     //Edad recomendada
-    if (!edadRecomendada.validity.valid) {
+    if (edadRecomendada.value < 1 && edadRecomendada.value > 10) {
+        todoCorrecto = false;
+        event.preventDefault();
+        edadRecomendada.style.borderColor = "red";
+        textoVentana += "Necesita un número entre 1 y 10.";   
+    }else if(!edadRecomendada.validity.valid){
         todoCorrecto = false;
         event.preventDefault();
         edadRecomendada.style.borderColor = "red"
