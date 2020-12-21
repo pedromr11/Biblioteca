@@ -93,7 +93,12 @@ function crearFormulario(){
     }    
 
     //Número de copias
-    if (!numeroCopias.validity.valid) {
+    if (numeroCopias.value.length > 2) {
+        todoCorrecto = false;
+        event.preventDefault();
+        numeroCopias.style.borderColor = "red";
+        textoVentana += "Necesita menos de 2 cifras.";   
+    }else if(!numeroCopias.validity.valid){
         todoCorrecto = false;
         event.preventDefault();
         numeroCopias.style.borderColor = "red"
@@ -160,7 +165,7 @@ function crearFormulario(){
         
      }
 
-     console.log(ArrayLibros);
+     //console.log(ArrayLibros);
 
     } );
 
