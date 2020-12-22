@@ -170,6 +170,7 @@ function crearFormulario(){
              Literatura: literatura.value,
              Nombre: nombreLibro.value,
              Identificador: identificador.value,
+             //Recojo solo el año
              FechaPublicacion: (añoPublicacion.value).split("-")[0],
              NumeroCopias: numeroCopias.value,
              EdadRecomendada: edadRecomendada.value,
